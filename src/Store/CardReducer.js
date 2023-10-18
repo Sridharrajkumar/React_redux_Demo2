@@ -6,7 +6,6 @@ const initialState = {
     items: [],
     TotalAmount: 0,
     changed: false,
-    
 }
 
 const Cardslice = createSlice({
@@ -14,9 +13,7 @@ const Cardslice = createSlice({
     initialState,
     reducers: {
         addCard(state, action) {
-            if (!state.items) {
-                state.items = [];
-            }
+           
             const ExistingCartItem = state.items.findIndex((item) => item.id === action.payload.id);
             const ExistingItem=state.items[ExistingCartItem]
             if (ExistingItem)
@@ -34,9 +31,7 @@ const Cardslice = createSlice({
 
         },
         removeItem(state, action) {
-            if (!state.items) {
-                state.items = [];
-            }
+            
             const ExistingCartItem = state.items.findIndex((item) => item.id === action.payload.id);
             const ExistingItem = state.items[ExistingCartItem]
             if (ExistingItem.quantity > 1) {
@@ -122,7 +117,10 @@ export const getCartData = () => {
       };
       try{
        const cartData= await getData();
-       dispatch(cardAction.replaceCart(cartData));
+          if (cartData)
+          {
+            dispatch(cardAction.replaceCart(cartData));
+           }
       }catch(error){
         dispatch(
             UiAction.showNotification({

@@ -7,6 +7,7 @@ const Cart = (props) => {
   const cartSelector = useSelector(state => state.card.items);
   const cartShow = useSelector(state => state.ui.ActivateCard);
   const total = useSelector(state => state.card.TotalAmount);
+  console.log(cartSelector);
   return (
     cartShow && (<Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
@@ -18,7 +19,6 @@ const Cart = (props) => {
           price={item.price}
           quantity={item.quantity}
           totalPrice={item.totalPrice}
-           
         />
         ))}
         <div className={classes.total}>
