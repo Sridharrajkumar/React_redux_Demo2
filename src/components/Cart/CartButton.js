@@ -6,9 +6,9 @@ const CartButton = (props) => {
 
   const dispatch = useDispatch();
   const items = useSelector(state => state.card.items);
-  const totalQuantity = items.reduce((currnum, item) =>{
+  const totalQuantity = items ? items.reduce((currnum, item) =>{
     return currnum + item.quantity;
-  },0)
+  },0):0
 
   const Handlecard = () => {
     dispatch(UiAction.hideCard());
@@ -23,3 +23,5 @@ const CartButton = (props) => {
 };
 
 export default CartButton;
+
+
