@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import classes from './CartButton.module.css';
-import { cardAction } from '../../Store/CardReducer';
+import { UiAction } from '../../Store/UiReducer';
 
 const CartButton = (props) => {
 
@@ -11,7 +11,7 @@ const CartButton = (props) => {
   },0)
 
   const Handlecard = () => {
-    dispatch(cardAction.hideCard());
+    dispatch(UiAction.hideCard());
   }
 
   return (

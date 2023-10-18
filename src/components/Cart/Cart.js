@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 
 const Cart = (props) => {
   const cartSelector = useSelector(state => state.card.items);
-  const cartShow = useSelector(state => state.card.ActivateCard);
+  const cartShow = useSelector(state => state.ui.ActivateCard);
   const total = useSelector(state => state.card.TotalAmount);
   return (
     cartShow && (<Card className={classes.cart}>

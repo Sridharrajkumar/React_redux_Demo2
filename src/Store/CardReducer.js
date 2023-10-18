@@ -4,7 +4,6 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     items: [],
     TotalAmount: 0,
-    ActivateCard: false,
 }
 
 const Cardslice = createSlice({
@@ -40,9 +39,7 @@ const Cardslice = createSlice({
                 state.TotalAmount = state.TotalAmount - ExistingItem.totalPrice;
             }
         },
-        hideCard(state) {
-            state.ActivateCard= !state.ActivateCard;
-        }
+        
     }
 
 })
